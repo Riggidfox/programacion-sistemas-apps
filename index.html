@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programación de Sistemas y Apps | Jhonatan Enrrique</title>
+    <meta name="description" content="Jhonatan Enrrique - Desarrollador de Software Profesional. Especializado en Sistemas Web, Apps Móviles y Bases de Datos.">
+    <meta name="author" content="Jhonatan Enrrique">
+    <title>Jhonatan Enrrique | Programación de Sistemas y Apps</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -21,12 +23,17 @@
             --gray: #1a2744;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--dark);
             color: var(--light);
             line-height: 1.6;
         }
 
+        /* Navegación */
         nav {
             position: fixed;
             top: 0;
@@ -57,6 +64,7 @@
             color: var(--primary);
         }
 
+        /* Hero Section */
         .hero {
             margin-top: 60px;
             padding: 100px 5%;
@@ -132,6 +140,7 @@
             color: var(--dark);
         }
 
+        /* Secciones */
         section {
             padding: 80px 5%;
         }
@@ -143,6 +152,7 @@
             color: var(--primary);
         }
 
+        /* Sobre Mí */
         .about-content {
             max-width: 900px;
             margin: 0 auto;
@@ -151,6 +161,7 @@
             color: #a0aec0;
         }
 
+        /* Servicios */
         .services {
             background: var(--gray);
         }
@@ -188,6 +199,7 @@
             color: var(--light);
         }
 
+        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -226,6 +238,7 @@
             transition: width 1s;
         }
 
+        /* Portafolio */
         .portfolio {
             background: var(--gray);
         }
@@ -257,12 +270,18 @@
             justify-content: center;
             font-size: 4rem;
             overflow: hidden;
+            position: relative;
         }
 
         .portfolio-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .portfolio-img i {
+            color: white;
+            z-index: 1;
         }
 
         .portfolio-info {
@@ -274,6 +293,13 @@
             color: var(--primary);
         }
 
+        .portfolio-info p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contacto */
         .contact-content {
             max-width: 800px;
             margin: 0 auto;
@@ -309,6 +335,7 @@
             text-decoration: none;
         }
 
+        /* Footer */
         footer {
             background: var(--dark);
             text-align: center;
@@ -316,6 +343,7 @@
             border-top: 1px solid rgba(0, 212, 255, 0.2);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -329,11 +357,16 @@
                 gap: 1rem;
                 font-size: 0.9rem;
             }
+            
+            section {
+                padding: 60px 3%;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navegación -->
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -345,9 +378,14 @@
         </ul>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <h1>Programación de Sistemas y Apps</h1>
-        <p>Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas</p>
+        <h1>Jhonatan Enrrique</h1>
+        <p>Programación de Sistemas y Apps</p>
+        <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem;">
+            Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas. 
+            Especializado en soluciones tecnológicas innovadoras y escalables.
+        </p>
         <div class="cta-buttons">
             <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary">
                 <i class="fab fa-whatsapp"></i> Contáctame
@@ -358,23 +396,30 @@
         </div>
     </section>
 
+    <!-- Sobre Mí -->
     <section id="sobre-mi">
         <h2>Sobre Mí</h2>
         <div class="about-content">
             <p>
-                Soy Jhonatan Enrrique, desarrollador de software especializado en crear soluciones tecnológicas innovadoras 
-                y escalables. Con experiencia en múltiples lenguajes de programación y tecnologías modernas, 
+                Soy <strong>Jhonatan Enrrique</strong>, desarrollador de software apasionado por crear soluciones tecnológicas 
+                innovadoras y escalables. Con experiencia en múltiples lenguajes de programación y tecnologías modernas, 
                 me dedico a transformar ideas en aplicaciones funcionales y sistemas eficientes.
             </p>
             <br>
             <p>
                 Mi enfoque es brindar un servicio profesional, personalizado y de alta calidad, 
                 adaptándome a las necesidades específicas de cada cliente, ya sean estudiantes, 
-                profesionales o empresas.
+                profesionales o empresas. Me especializo en desarrollo web, aplicaciones móviles 
+                y sistemas de gestión empresarial.
+            </p>
+            <br>
+            <p style="color: var(--primary); font-size: 1.2rem;">
+                <i class="fas fa-code"></i> ¡Transformemos tus ideas en realidad!
             </p>
         </div>
     </section>
 
+    <!-- Servicios -->
     <section id="servicios" class="services">
         <h2>Mis Servicios</h2>
         <div class="services-grid">
@@ -411,6 +456,7 @@
         </div>
     </section>
 
+    <!-- Habilidades -->
     <section id="habilidades">
         <h2>Habilidades Técnicas</h2>
         <div class="skills-grid">
@@ -418,7 +464,7 @@
                 <h3><i class="fas fa-laptop-code"></i> Lenguajes</h3>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Python</span>
+                        <span>PHP</span>
                         <span>95%</span>
                     </div>
                     <div class="skill-bar">
@@ -445,7 +491,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>C++ / C#</span>
+                        <span>Python</span>
                         <span>80%</span>
                     </div>
                     <div class="skill-bar">
@@ -458,16 +504,16 @@
                 <h3><i class="fas fa-globe"></i> Web</h3>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>React / Vue / Angular</span>
-                        <span>90%</span>
+                        <span>HTML5/CSS3/Bootstrap</span>
+                        <span>95%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-progress" style="width: 95%"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Node.js</span>
+                        <span>React / Vue</span>
                         <span>85%</span>
                     </div>
                     <div class="skill-bar">
@@ -476,7 +522,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>PHP / Laravel</span>
+                        <span>Node.js</span>
                         <span>80%</span>
                     </div>
                     <div class="skill-bar">
@@ -486,10 +532,19 @@
             </div>
 
             <div class="skill-category">
-                <h3><i class="fas fa-mobile"></i> Móvil</h3>
+                <h3><i class="fas fa-database"></i> Bases de Datos</h3>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>React Native</span>
+                        <span>MySQL / MariaDB</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PostgreSQL</span>
                         <span>85%</span>
                     </div>
                     <div class="skill-bar">
@@ -498,16 +553,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Flutter</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Swift / Kotlin</span>
+                        <span>MongoDB</span>
                         <span>75%</span>
                     </div>
                     <div class="skill-bar">
@@ -529,104 +575,131 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>SQL / MySQL / MongoDB</span>
-                        <span>85%</span>
+                        <span>XAMPP / WAMP</span>
+                        <span>95%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
+                        <div class="skill-progress" style="width: 95%"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Docker / AWS</span>
-                        <span>75%</span>
+                        <span>Visual Studio Code</span>
+                        <span>95%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
+                        <div class="skill-progress" style="width: 95%"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Portafolio -->
     <section id="portafolio" class="portfolio">
-        <h2>Mis Proyectos</h2>
+        <h2>Mis Proyectos Destacados</h2>
         <div class="portfolio-grid">
             
+            <!-- Proyecto 1: FUNDAPROAL -->
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="proyecto1.jpg" alt="Sistema 1">
+                    <i class="fas fa-utensils"></i>
                 </div>
                 <div class="portfolio-info">
-                    <h3>Nombre de tu Sistema 1</h3>
-                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
-                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript</p>
+                    <h3>FUNDAPROAL - Sistema de Soberanía Alimentaria</h3>
+                    <p>Sistema integral para la Fundación Programa de Alimentos Estratégicos del Estado Monagas. 
+                       Gestión de más de 86,000 madres beneficiarias y 3,800+ casas de alimentación.</p>
+                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript, Bootstrap, HTML5, CSS3</p>
+                    <p><strong>Características:</strong>
+                       <br>• Control de 4.6M+ estudiantes PAE
+                       <br>• Gestión de 20,000+ centros educativos
+                       <br>• Dashboard administrativo multiusuario
+                       <br>• Estadísticas en tiempo real
+                       <br>• Conexión segura SSL/TLS
+                    </p>
                 </div>
             </div>
 
+            <!-- Proyecto 2: Ejemplo - Sistema de Inventario -->
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="proyecto2.jpg" alt="Sistema 2">
+                    <i class="fas fa-boxes"></i>
                 </div>
                 <div class="portfolio-info">
-                    <h3>Nombre de tu Sistema 2</h3>
-                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
-                    <p><strong>Tecnologías:</strong> Python, Django, PostgreSQL</p>
+                    <h3>Sistema de Inventario y Ventas</h3>
+                    <p>Sistema completo de control de inventario con reportes, alertas de stock bajo 
+                       y gestión de múltiples almacenes. Ideal para pequeñas y medianas empresas.</p>
+                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript, Bootstrap</p>
+                    <p><strong>Módulos:</strong> Inventario, Ventas, Reportes, Usuarios, Proveedores</p>
                 </div>
             </div>
 
+            <!-- Proyecto 3: Ejemplo - App de Delivery -->
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="proyecto3.jpg" alt="Sistema 3">
+                    <i class="fas fa-motorcycle"></i>
                 </div>
                 <div class="portfolio-info">
-                    <h3>Nombre de tu Sistema 3</h3>
-                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
-                    <p><strong>Tecnologías:</strong> Java, Spring Boot, MySQL</p>
+                    <h3>App de Delivery y Pedidos</h3>
+                    <p>Aplicación móvil para pedidos a domicilio con seguimiento en tiempo real, 
+                       pasarela de pagos y gestión de repartidores.</p>
+                    <p><strong>Tecnologías:</strong> React Native, Firebase, Node.js</p>
+                    <p><strong>Funciones:</strong> Pedidos online, GPS tracking, Pagos digitales</p>
                 </div>
             </div>
 
+            <!-- Proyecto 4: Ejemplo - CRM Empresarial -->
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="proyecto4.jpg" alt="Sistema 4">
+                    <i class="fas fa-chart-line"></i>
                 </div>
                 <div class="portfolio-info">
-                    <h3>Nombre de tu Sistema 4</h3>
-                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
-                    <p><strong>Tecnologías:</strong> React Native, Firebase</p>
+                    <h3>CRM - Gestión de Clientes</h3>
+                    <p>Sistema de gestión de relaciones con clientes y automatización de ventas. 
+                       Incluye pipeline de ventas, seguimiento y reportes.</p>
+                    <p><strong>Tecnologías:</strong> PHP, Laravel, MySQL, Vue.js</p>
+                    <p><strong>Características:</strong> Pipeline, Automatización, Reportes avanzados</p>
                 </div>
             </div>
 
+            <!-- Proyecto 5: Ejemplo - Plataforma Educativa -->
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="proyecto5.jpg" alt="Sistema 5">
+                    <i class="fas fa-graduation-cap"></i>
                 </div>
                 <div class="portfolio-info">
-                    <h3>Nombre de tu Sistema 5</h3>
-                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
-                    <p><strong>Tecnologías:</strong> C#, .NET, SQL Server</p>
+                    <h3>Plataforma E-Learning</h3>
+                    <p>Sistema de gestión de aprendizaje con cursos, evaluaciones, certificados 
+                       y seguimiento del progreso estudiantil.</p>
+                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript, Bootstrap</p>
+                    <p><strong>Módulos:</strong> Cursos, Evaluaciones, Certificados, Foro</p>
                 </div>
             </div>
 
+            <!-- Proyecto 6: Ejemplo - Sistema de Citas -->
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="proyecto6.jpg" alt="Sistema 6">
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
                 <div class="portfolio-info">
-                    <h3>Nombre de tu Sistema 6</h3>
-                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
-                    <p><strong>Tecnologías:</strong> Laravel, Vue.js, MySQL</p>
+                    <h3>Sistema de Citas Médicas</h3>
+                    <p>Plataforma para gestión de citas médicas, historiales clínicos digitales 
+                       y control de pacientes con recordatorios automáticos.</p>
+                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript, AJAX</p>
+                    <p><strong>Funciones:</strong> Citas online, Historial, Recordatorios SMS</p>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!-- Contacto -->
     <section id="contacto">
         <h2>¡Trabajemos Juntos!</h2>
         <div class="contact-content">
             <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #a0aec0;">
-                ¿Tienes un proyecto en mente? Estoy aquí para ayudarte a hacerlo realidad.
+                ¿Tienes un proyecto en mente? Estoy aquí para ayudarte a hacerlo realidad. 
+                Contáctame y conversemos sobre cómo puedo ayudarte.
             </p>
             <div class="contact-methods">
                 <div class="contact-method">
@@ -642,7 +715,7 @@
                 <div class="contact-method">
                     <i class="fab fa-facebook"></i>
                     <h3>Facebook</h3>
-                    <p><a href="https://facebook.com/programacionsistemasapps" target="_blank">Programación de Sistemas y Apps</a></p>
+                    <p><a href="https://facebook.com/programacionsistemasapps" target="_blank">Programación de Sistemas</a></p>
                 </div>
                 <div class="contact-method">
                     <i class="fab fa-github"></i>
@@ -653,25 +726,33 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Programación de Sistemas y Apps - Jhonatan Enrrique. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Jhonatan Enrrique - Programación de Sistemas y Apps. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem; color: var(--primary);">
-            <i class="fas fa-code"></i> con <i class="fas fa-heart" style="color: #ff6b6b;"></i> por un desarrollador apasionado
+            <i class="fas fa-code"></i> con <i class="fas fa-heart" style="color: #ff6b6b;"></i> desde Venezuela
         </p>
     </footer>
 
     <script>
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
+        // Animación de barras de habilidades al hacer scroll
         const observerOptions = {
-            threshold: 0.5
+            threshold: 0.5,
+            rootMargin: '0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -679,7 +760,11 @@
                 if (entry.isIntersecting) {
                     const progressBars = entry.target.querySelectorAll('.skill-progress');
                     progressBars.forEach(bar => {
-                        bar.style.width = bar.style.width;
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
                     });
                 }
             });
@@ -689,6 +774,18 @@
         if (skillsSection) {
             observer.observe(skillsSection);
         }
+
+        // Cambiar navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 22, 40, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 212, 255, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 22, 40, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 212, 255, 0.2)';
+            }
+        });
     </script>
 </body>
 </html>
