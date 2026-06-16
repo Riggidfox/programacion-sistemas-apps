@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación de Sistemas y Apps | Desarrollo Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0099cc;
+            --dark: #0a1628;
+            --light: #ffffff;
+            --gray: #1a2744;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            padding: 100px 5%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><text fill="rgba(0,212,255,0.03)" font-size="20" x="50" y="50">{ }</text></svg>');
+            opacity: 0.1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #a0aec0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 5%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        /* Sobre Mí */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #a0aec0;
+        }
+
+        /* Servicios */
+        .services {
+            background: var(--gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: var(--gray);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+            transition: width 1s;
+        }
+
+        /* Portafolio */
+        .portfolio {
+            background: var(--gray);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            background: var(--dark);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+
+        .portfolio-img {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Contacto */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            padding: 2rem;
+            background: var(--gray);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-method i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-method a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1>Programación de Sistemas y Apps</h1>
+        <p>Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas</p>
+        <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-primary">
+                <i class="fas fa-rocket"></i> Iniciar Proyecto
+            </a>
+            <a href="#portafolio" class="btn btn-secondary">
+                <i class="fas fa-briefcase"></i> Ver Trabajos
+            </a>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <div class="about-content">
+            <p>
+                Soy desarrollador de software especializado en crear soluciones tecnológicas innovadoras 
+                y escalables. Con experiencia en múltiples lenguajes de programación y tecnologías modernas, 
+                me dedico a transformar ideas en aplicaciones funcionales y sistemas eficientes.
+            </p>
+            <br>
+            <p>
+                Mi enfoque es brindar un servicio profesional, personalizado y de alta calidad, 
+                adaptándome a las necesidades específicas de cada cliente, ya sean estudiantes, 
+                profesionales o empresas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <h2>Mis Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Apps Móviles</h3>
+                <p>Desarrollo de aplicaciones nativas y multiplataforma para iOS y Android con las últimas tecnologías.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Sistemas Web</h3>
+                <p>Aplicaciones web responsivas, modernas y escalables con las mejores prácticas de desarrollo.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-database"></i>
+                <h3>Bases de Datos</h3>
+                <p>Diseño, implementación y optimización de bases de datos relacionales y NoSQL.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-desktop"></i>
+                <h3>Software de Escritorio</h3>
+                <p>Aplicaciones de escritorio potentes y eficientes para Windows, Mac y Linux.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Sistemas a Medida</h3>
+                <p>Soluciones personalizadas ERP, CRM, POS y sistemas de gestión empresarial.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Proyectos Académicos</h3>
+                <p>Desarrollo de proyectos para TSU, licenciaturas e ingenierías en sistemas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades">
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Lenguajes</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>JavaScript/TypeScript</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Java</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>C++ / C#</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-globe"></i> Web</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>React / Vue / Angular</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Node.js</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PHP / Laravel</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-mobile"></i> Móvil</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>React Native</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Flutter</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Swift / Kotlin</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Herramientas</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Git / GitHub</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>SQL / MySQL / MongoDB</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Docker / AWS</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio -->
+    <section id="portafolio" class="portfolio">
+        <h2>Proyectos Destacados</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Sistema E-Commerce</h3>
+                    <p>Plataforma de ventas online con pasarela de pagos, inventario y panel de administración.</p>
+                    <p><strong>Tecnologías:</strong> React, Node.js, MongoDB</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Sistema de Gestión Hospitalaria</h3>
+                    <p>Software para administración de citas, historiales médicos y facturación.</p>
+                    <p><strong>Tecnologías:</strong> Java, Spring Boot, MySQL</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h3>App de Delivery</h3>
+                    <p>Aplicación móvil para pedidos a domicilio con seguimiento en tiempo real.</p>
+                    <p><strong>Tecnologías:</strong> React Native, Firebase</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h3>CRM Empresarial</h3>
+                    <p>Sistema de gestión de relaciones con clientes y automatización de ventas.</p>
+                    <p><strong>Tecnologías:</strong> Python, Django, PostgreSQL</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Plataforma Educativa</h3>
+                    <p>Sistema de gestión de aprendizaje con cursos, evaluaciones y certificados.</p>
+                    <p><strong>Tecnologías:</strong> PHP, Laravel, Vue.js</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h3>App Financiera</h3>
+                    <p>Aplicación para control de gastos personales con reportes y análisis.</p>
+                    <p><strong>Tecnologías:</strong> Flutter, Firebase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2>¡Trabajemos Juntos!</h2>
+        <div class="contact-content">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #a0aec0;">
+                ¿Tienes un proyecto en mente? Estoy aquí para ayudarte a hacerlo realidad.
+            </p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/TUNUMERO" target="_blank">+XX XXX-XXXXXXX</a></p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                    <p><a href="https://facebook.com/tupagina" target="_blank">Tu Página</a></p>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/tuusuario" target="_blank">@tuusuario</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Programación de Sistemas y Apps. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem; color: var(--primary);">
+            <i class="fas fa-code"></i> con <i class="fas fa-heart" style="color: #ff6b6b;"></i> por un desarrollador apasionado
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animación de barras de habilidades al hacer scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.style.width;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.querySelector('#habilidades');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
