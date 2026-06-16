@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programación de Sistemas y Apps | Desarrollo Profesional</title>
+    <title>Programación de Sistemas y Apps | Jhonatan Enrrique</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -27,7 +27,6 @@
             line-height: 1.6;
         }
 
-        /* Navegación */
         nav {
             position: fixed;
             top: 0;
@@ -58,7 +57,6 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
         .hero {
             margin-top: 60px;
             padding: 100px 5%;
@@ -134,7 +132,6 @@
             color: var(--dark);
         }
 
-        /* Secciones */
         section {
             padding: 80px 5%;
         }
@@ -146,7 +143,6 @@
             color: var(--primary);
         }
 
-        /* Sobre Mí */
         .about-content {
             max-width: 900px;
             margin: 0 auto;
@@ -155,7 +151,6 @@
             color: #a0aec0;
         }
 
-        /* Servicios */
         .services {
             background: var(--gray);
         }
@@ -193,7 +188,6 @@
             color: var(--light);
         }
 
-        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -232,7 +226,6 @@
             transition: width 1s;
         }
 
-        /* Portafolio */
         .portfolio {
             background: var(--gray);
         }
@@ -263,6 +256,13 @@
             align-items: center;
             justify-content: center;
             font-size: 4rem;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .portfolio-info {
@@ -274,7 +274,6 @@
             color: var(--primary);
         }
 
-        /* Contacto */
         .contact-content {
             max-width: 800px;
             margin: 0 auto;
@@ -310,7 +309,6 @@
             text-decoration: none;
         }
 
-        /* Footer */
         footer {
             background: var(--dark);
             text-align: center;
@@ -318,7 +316,6 @@
             border-top: 1px solid rgba(0, 212, 255, 0.2);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -337,7 +334,6 @@
 </head>
 <body>
 
-    <!-- Navegación -->
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -349,13 +345,12 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="inicio">
         <h1>Programación de Sistemas y Apps</h1>
         <p>Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas</p>
         <div class="cta-buttons">
-            <a href="#contacto" class="btn btn-primary">
-                <i class="fas fa-rocket"></i> Iniciar Proyecto
+            <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Contáctame
             </a>
             <a href="#portafolio" class="btn btn-secondary">
                 <i class="fas fa-briefcase"></i> Ver Trabajos
@@ -363,12 +358,11 @@
         </div>
     </section>
 
-    <!-- Sobre Mí -->
     <section id="sobre-mi">
         <h2>Sobre Mí</h2>
         <div class="about-content">
             <p>
-                Soy desarrollador de software especializado en crear soluciones tecnológicas innovadoras 
+                Soy Jhonatan Enrrique, desarrollador de software especializado en crear soluciones tecnológicas innovadoras 
                 y escalables. Con experiencia en múltiples lenguajes de programación y tecnologías modernas, 
                 me dedico a transformar ideas en aplicaciones funcionales y sistemas eficientes.
             </p>
@@ -381,7 +375,6 @@
         </div>
     </section>
 
-    <!-- Servicios -->
     <section id="servicios" class="services">
         <h2>Mis Servicios</h2>
         <div class="services-grid">
@@ -418,7 +411,6 @@
         </div>
     </section>
 
-    <!-- Habilidades -->
     <section id="habilidades">
         <h2>Habilidades Técnicas</h2>
         <div class="skills-grid">
@@ -557,79 +549,79 @@
         </div>
     </section>
 
-    <!-- Portafolio -->
     <section id="portafolio" class="portfolio">
-        <h2>Proyectos Destacados</h2>
+        <h2>Mis Proyectos</h2>
         <div class="portfolio-grid">
+            
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <i class="fas fa-shopping-cart"></i>
+                    <img src="proyecto1.jpg" alt="Sistema 1">
                 </div>
                 <div class="portfolio-info">
-                    <h3>Sistema E-Commerce</h3>
-                    <p>Plataforma de ventas online con pasarela de pagos, inventario y panel de administración.</p>
-                    <p><strong>Tecnologías:</strong> React, Node.js, MongoDB</p>
+                    <h3>Nombre de tu Sistema 1</h3>
+                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
+                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript</p>
                 </div>
             </div>
 
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <i class="fas fa-hospital"></i>
+                    <img src="proyecto2.jpg" alt="Sistema 2">
                 </div>
                 <div class="portfolio-info">
-                    <h3>Sistema de Gestión Hospitalaria</h3>
-                    <p>Software para administración de citas, historiales médicos y facturación.</p>
-                    <p><strong>Tecnologías:</strong> Java, Spring Boot, MySQL</p>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <div class="portfolio-info">
-                    <h3>App de Delivery</h3>
-                    <p>Aplicación móvil para pedidos a domicilio con seguimiento en tiempo real.</p>
-                    <p><strong>Tecnologías:</strong> React Native, Firebase</p>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="portfolio-info">
-                    <h3>CRM Empresarial</h3>
-                    <p>Sistema de gestión de relaciones con clientes y automatización de ventas.</p>
+                    <h3>Nombre de tu Sistema 2</h3>
+                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
                     <p><strong>Tecnologías:</strong> Python, Django, PostgreSQL</p>
                 </div>
             </div>
 
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <i class="fas fa-graduation-cap"></i>
+                    <img src="proyecto3.jpg" alt="Sistema 3">
                 </div>
                 <div class="portfolio-info">
-                    <h3>Plataforma Educativa</h3>
-                    <p>Sistema de gestión de aprendizaje con cursos, evaluaciones y certificados.</p>
-                    <p><strong>Tecnologías:</strong> PHP, Laravel, Vue.js</p>
+                    <h3>Nombre de tu Sistema 3</h3>
+                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
+                    <p><strong>Tecnologías:</strong> Java, Spring Boot, MySQL</p>
                 </div>
             </div>
 
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <i class="fas fa-wallet"></i>
+                    <img src="proyecto4.jpg" alt="Sistema 4">
                 </div>
                 <div class="portfolio-info">
-                    <h3>App Financiera</h3>
-                    <p>Aplicación para control de gastos personales con reportes y análisis.</p>
-                    <p><strong>Tecnologías:</strong> Flutter, Firebase</p>
+                    <h3>Nombre de tu Sistema 4</h3>
+                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
+                    <p><strong>Tecnologías:</strong> React Native, Firebase</p>
                 </div>
             </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="proyecto5.jpg" alt="Sistema 5">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Nombre de tu Sistema 5</h3>
+                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
+                    <p><strong>Tecnologías:</strong> C#, .NET, SQL Server</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="proyecto6.jpg" alt="Sistema 6">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Nombre de tu Sistema 6</h3>
+                    <p>Descripción breve del sistema, qué hace y para quién es.</p>
+                    <p><strong>Tecnologías:</strong> Laravel, Vue.js, MySQL</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Contacto -->
     <section id="contacto">
         <h2>¡Trabajemos Juntos!</h2>
         <div class="contact-content">
@@ -640,37 +632,35 @@
                 <div class="contact-method">
                     <i class="fab fa-whatsapp"></i>
                     <h3>WhatsApp</h3>
-                    <p><a href="https://wa.me/TUNUMERO" target="_blank">+XX XXX-XXXXXXX</a></p>
+                    <p><a href="https://wa.me/584148987653" target="_blank">+58 414-8987653</a></p>
                 </div>
                 <div class="contact-method">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
-                    <p><a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
+                    <p><a href="mailto:idrogoenriquejhonatan@gmail.com">idrogoenriquejhonatan@gmail.com</a></p>
                 </div>
                 <div class="contact-method">
                     <i class="fab fa-facebook"></i>
                     <h3>Facebook</h3>
-                    <p><a href="https://facebook.com/tupagina" target="_blank">Tu Página</a></p>
+                    <p><a href="https://facebook.com/programacionsistemasapps" target="_blank">Programación de Sistemas y Apps</a></p>
                 </div>
                 <div class="contact-method">
                     <i class="fab fa-github"></i>
                     <h3>GitHub</h3>
-                    <p><a href="https://github.com/tuusuario" target="_blank">@tuusuario</a></p>
+                    <p><a href="https://github.com/Riggidfox" target="_blank">@Riggidfox</a></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Programación de Sistemas y Apps. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Programación de Sistemas y Apps - Jhonatan Enrrique. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem; color: var(--primary);">
             <i class="fas fa-code"></i> con <i class="fas fa-heart" style="color: #ff6b6b;"></i> por un desarrollador apasionado
         </p>
     </footer>
 
     <script>
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -680,7 +670,6 @@
             });
         });
 
-        // Animación de barras de habilidades al hacer scroll
         const observerOptions = {
             threshold: 0.5
         };
