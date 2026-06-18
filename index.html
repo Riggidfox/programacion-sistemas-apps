@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jhonatan Enrrique - Desarrollador de Software Profesional especializado en Sistemas Web, Apps y Proyectos Académicos.">
-    <title>Jhonatan Enrrique | Desarrollador de Software</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Jhonatan Enrique Idrogo - Desarrollador de Software Profesional especializado en Sistemas Web, Apps y Proyectos Académicos.">
+    <meta name="author" content="Jhonatan Enrique Idrogo">
+    <meta name="keywords" content="Jhonatan Idrogo, desarrollador web Venezuela, programador sistemas, apps móviles, proyectos TSU">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jhonatan Enrique Idrogo | Desarrollador de Software">
+    <meta property="og:description" content="Desarrollo de software a medida: Sistemas Web, Apps Móviles, Bases de Datos y Proyectos Académicos.">
+    
+    <title>Jhonatan Enrique Idrogo | Desarrollador de Software</title>
+    
+    <!-- Favicon SVG con tus iniciales -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230a192f%22/><text x=%2250%22 y=%2275%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22%2300d4ff%22 font-family=%22Arial%22 font-weight=%22bold%22>JEI</text></svg>">
     
     <!-- Fuentes e Iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,14 +89,13 @@
             letter-spacing: -1px;
         }
 
-        .logo span {
-            color: var(--light);
-        }
+        .logo span { color: var(--light); }
 
         nav ul {
             list-style: none;
             display: flex;
             gap: 2.5rem;
+            align-items: center;
         }
 
         nav a.nav-link {
@@ -111,23 +123,80 @@
             transition: width 0.3s ease;
         }
 
-        nav a.nav-link:hover::after {
+        nav a.nav-link:hover::after, nav a.nav-link.active::after {
             width: 100%;
             left: 0;
             background: var(--primary);
         }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
         /* HERO SECTION */
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 80px 5% 40px;
+            padding: 100px 5% 40px;
             background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
             position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .profile-img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gray), var(--darker));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            flex-shrink: 0;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .profile-img i {
+            font-size: 10rem;
+            color: var(--slate);
+            opacity: 0.5;
+        }
+
+        .hero-text {
+            max-width: 600px;
         }
 
         .hero-greeting {
@@ -139,13 +208,13 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             margin-bottom: 1rem;
             font-weight: 800;
         }
 
         .hero h2 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             color: var(--slate);
             margin-bottom: 1.5rem;
             font-weight: 600;
@@ -159,14 +228,11 @@
             animation: blink 0.8s infinite;
         }
 
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
+        @keyframes blink { 50% { border-color: transparent; } }
 
         .hero p {
             font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
+            margin-bottom: 2.5rem;
             color: var(--slate);
         }
 
@@ -174,7 +240,6 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .btn {
@@ -203,13 +268,13 @@
             box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
         }
 
-        .btn-secondary {
+        .btn-secondary, .btn-outline {
             background: transparent;
             color: var(--primary);
             border: 1px solid var(--primary);
         }
 
-        .btn-secondary:hover {
+        .btn-secondary:hover, .btn-outline:hover {
             background: rgba(0, 212, 255, 0.1);
             transform: translateY(-3px);
         }
@@ -241,7 +306,7 @@
             font-size: 1.1rem;
         }
 
-        /* SOBRE MÍ */
+        /* SOBRE MÍ Y STATS */
         .about-content {
             max-width: 800px;
             margin: 0 auto;
@@ -250,11 +315,37 @@
             line-height: 1.8;
         }
 
-        .about-content strong {
-            color: var(--primary);
+        .about-content strong { color: var(--primary); }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
         }
 
-        /* SERVICIOS Y PORTAFOLIO (Grids) */
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--slate);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .bg-gray {
             background-color: var(--gray);
             max-width: 100%;
@@ -272,11 +363,8 @@
             background: var(--dark);
             padding: 2.5rem 2rem;
             border-radius: 12px;
-            text-align: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
         }
 
         .service-card:hover, .portfolio-item:hover {
@@ -292,10 +380,7 @@
             display: inline-block;
         }
 
-        .service-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
+        .service-card h3 { margin-bottom: 1rem; font-size: 1.3rem; }
 
         /* HABILIDADES */
         .skills-grid {
@@ -315,13 +400,8 @@
             gap: 0.5rem;
         }
 
-        .skill-category h3 i {
-            color: var(--primary);
-        }
-
-        .skill-item {
-            margin-bottom: 1.5rem;
-        }
+        .skill-category h3 i { color: var(--primary); }
+        .skill-item { margin-bottom: 1.5rem; }
 
         .skill-name {
             display: flex;
@@ -341,7 +421,7 @@
 
         .skill-progress {
             height: 100%;
-            width: 0; /* Inicia en 0 para la animación */
+            width: 0;
             background: linear-gradient(90deg, var(--secondary), var(--primary));
             border-radius: 4px;
             transition: width 1.5s ease-in-out;
@@ -360,21 +440,9 @@
             color: var(--primary);
         }
 
-        .portfolio-info {
-            text-align: left;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--light);
-        }
-
-        .portfolio-info p {
-            color: var(--slate);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
+        .portfolio-info { text-align: left; }
+        .portfolio-info h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--light); }
+        .portfolio-info p { color: var(--slate); margin-bottom: 1rem; font-size: 0.95rem; }
 
         .tech-stack {
             color: var(--primary);
@@ -383,28 +451,12 @@
             margin-bottom: 1rem;
         }
 
-        .portfolio-features {
-            list-style: none;
-            font-size: 0.9rem;
-            color: var(--slate);
-        }
-
-        .portfolio-features li {
-            margin-bottom: 0.3rem;
-        }
-
-        .portfolio-features i {
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
+        .portfolio-features { list-style: none; font-size: 0.9rem; color: var(--slate); }
+        .portfolio-features li { margin-bottom: 0.3rem; }
+        .portfolio-features i { color: var(--primary); margin-right: 0.5rem; }
 
         /* CONTACTO */
-        .contact-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
+        .contact-content { max-width: 900px; margin: 0 auto; text-align: center; }
         .contact-methods {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -426,25 +478,36 @@
             border: 1px solid var(--primary);
         }
 
-        .contact-method i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .contact-method i { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+        .contact-method h3 { color: var(--light); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .contact-method p { color: var(--slate); font-size: 0.9rem; word-break: break-all; }
+
+        /* SCROLL TOP Y FOOTER */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--darker);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
         }
 
-        .contact-method h3 {
-            color: var(--light);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
+        .scroll-top.active { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background: var(--light); transform: translateY(-3px); }
 
-        .contact-method p {
-            color: var(--slate);
-            font-size: 0.9rem;
-            word-break: break-all;
-        }
-
-        /* FOOTER */
         footer {
             background: var(--darker);
             text-align: center;
@@ -452,60 +515,84 @@
             border-top: 1px solid rgba(0, 212, 255, 0.1);
         }
 
-        footer p {
-            color: var(--slate);
-            font-size: 0.9rem;
-        }
-
-        footer .heart {
-            color: var(--primary);
-        }
+        footer p { color: var(--slate); font-size: 0.9rem; }
+        footer .heart { color: var(--primary); }
+        .footer-socials { margin-bottom: 1rem; display: flex; gap: 1.5rem; justify-content: center; }
+        .footer-socials a { color: var(--slate); font-size: 1.5rem; transition: color 0.3s; }
+        .footer-socials a:hover { color: var(--primary); }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            
             nav ul {
-                gap: 1.2rem;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--darker);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.4s ease-in-out;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.5);
             }
             
-            nav a.nav-link {
-                font-size: 0.85rem;
-            }
-
-            section {
-                padding: 60px 5%;
-            }
+            nav ul.active { right: 0; }
+            
+            nav a.nav-link { font-size: 1.2rem; }
+            
+            .hero-content { text-align: center; flex-direction: column-reverse; gap: 2rem; }
+            .cta-buttons { justify-content: center; }
+            .profile-img { width: 220px; height: 220px; }
+            .profile-img i { font-size: 7rem; }
+            
+            section { padding: 60px 5%; }
+            .stats-container { gap: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#inicio" class="logo">J<span>E.</span></a>
-        <ul>
-            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+        <a href="#inicio" class="logo">JEI<span>.</span></a>
+        <ul id="nav-menu">
+            <li><a href="#inicio" class="nav-link active">Inicio</a></li>
             <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
             <li><a href="#servicios" class="nav-link">Servicios</a></li>
             <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
             <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
             <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
 
     <section class="hero" id="inicio">
-        <p class="hero-greeting">Hola, soy</p>
-        <h1>Jhonatan Enrrique</h1>
-        <h2>Experto en <span class="typewriter" id="typewriter"></span></h2>
-        <p>
-            Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas. 
-            Transformo ideas en aplicaciones funcionales, escalables y modernas.
-        </p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary">
-                <i class="fab fa-whatsapp"></i> Contáctame
-            </a>
-            <a href="#portafolio" class="btn btn-secondary">
-                <i class="fas fa-briefcase"></i> Ver Trabajos
-            </a>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hola, soy</p>
+                <h1>Jhonatan Enrique Idrogo</h1>
+                <h2>Experto en <span class="typewriter" id="typewriter"></span></h2>
+                <p>
+                    Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas. 
+                    Transformo ideas en aplicaciones funcionales, escalables y modernas.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> Contáctame
+                    </a>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fas fa-download"></i> Descargar CV
+                    </a>
+                </div>
+            </div>
+            <div class="profile-img">
+                <!-- Reemplaza este icono por una etiqueta img con tu foto: <img src="tu-foto.jpg" alt="Jhonatan Idrogo"> -->
+                <i class="fas fa-user-astronaut"></i>
+            </div>
         </div>
     </section>
 
@@ -514,11 +601,26 @@
         <p class="section-subtitle">Conoce un poco más sobre mi experiencia</p>
         <div class="about-content">
             <p>
-                Soy <strong>Jhonatan Enrrique</strong>, desarrollador de software especializado en crear soluciones tecnológicas 
+                Soy <strong>Jhonatan Enrique Idrogo</strong>, desarrollador de software especializado en crear soluciones tecnológicas 
                 innovadoras. Con amplia experiencia en múltiples lenguajes de programación y frameworks, me dedico a transformar ideas en 
                 aplicaciones funcionales. Mi enfoque se centra en la calidad del código, la experiencia del usuario y el rendimiento, 
                 ayudando a empresas y estudiantes a alcanzar sus metas tecnológicas.
             </p>
+            
+            <div class="stats-container">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Proyectos Completados</span>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="stat-number" data-target="30">0</span>
+                    <span class="stat-label">Clientes Satisfechos</span>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Años de Experiencia</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -765,63 +867,113 @@
     </section>
 
     <footer>
-        <p>&copy; <span id="year"></span> Jhonatan Enrrique. Todos los derechos reservados.</p>
+        <div class="footer-socials">
+            <a href="https://wa.me/584148987653" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://github.com/Riggidfox" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:idrogoenriquejhonatan@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; <span id="year"></span> Jhonatan Enrique Idrogo. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem;">Diseñado y desarrollado con <span class="heart"><i class="fas fa-heart"></i></span> desde Venezuela</p>
     </footer>
+
+    <button id="scroll-top" class="scroll-top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializar animaciones AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-
-        // Actualizar año en el footer automáticamente
+        AOS.init({ duration: 800, once: true, offset: 100 });
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Efecto Máquina de Escribir
-        const texts = ["Sistemas Web", "Apps Móviles", "Proyectos Académicos", "Bases de Datos"];
-        let count = 0;
-        let index = 0;
-        let currentText = '';
-        let letter = '';
-        const typewriter = document.getElementById('typewriter');
+        // Menú Móvil
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ScrollSpy y Botón Volver Arriba
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const scrollTopBtn = document.getElementById('scroll-top');
+
+        window.addEventListener('scroll', () => {
+            // ScrollSpy
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll Top Button
+            pageYOffset > 300 ? scrollTopBtn.classList.add('active') : scrollTopBtn.classList.remove('active');
+        });
+
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Typewriter
+        const texts = ["Sistemas Web", "Apps Móviles", "Proyectos Académicos", "Bases de Datos"];
+        let count = 0, index = 0, currentText = '', letter = '';
+        const typewriter = document.getElementById('typewriter');
         (function type() {
-            if (count === texts.length) {
-                count = 0;
-            }
+            if (count === texts.length) count = 0;
             currentText = texts[count];
             letter = currentText.slice(0, ++index);
-
             typewriter.textContent = letter;
             if (letter.length === currentText.length) {
-                setTimeout(() => {
-                    index = 0;
-                    count++;
-                    type();
-                }, 2000); // Pausa antes de borrar
+                setTimeout(() => { index = 0; count++; type(); }, 2000);
             } else {
-                setTimeout(type, 150); // Velocidad de escritura
+                setTimeout(type, 150);
             }
         }());
 
-        // Animación de barras de progreso al hacer scroll
+        // Animación barras de progreso
         const skillBars = document.querySelectorAll('.skill-progress');
-        const observer = new IntersectionObserver((entries) => {
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.style.width = entry.target.getAttribute('data-width');
+            });
+        }, { threshold: 0.5 });
+        skillBars.forEach(bar => skillObserver.observe(bar));
+
+        // Animación contadores estadísticas
+        const stats = document.querySelectorAll('.stat-number');
+        const statObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.width = entry.target.getAttribute('data-width');
+                    const target = +entry.target.getAttribute('data-target');
+                    let current = 0;
+                    const increment = target / 30;
+                    const updateCount = () => {
+                        current += increment;
+                        if (current < target) {
+                            entry.target.innerText = Math.ceil(current) + '+';
+                            setTimeout(updateCount, 40);
+                        } else {
+                            entry.target.innerText = target + '+';
+                        }
+                    };
+                    updateCount();
                 }
             });
         }, { threshold: 0.5 });
-
-        skillBars.forEach(bar => {
-            observer.observe(bar);
-        });
+        stats.forEach(stat => statObserver.observe(stat));
     </script>
 </body>
 </html>
