@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jhonatan Enrrique - Desarrollador de Software Profesional">
-    <title>Jhonatan Enrrique | Programación de Sistemas y Apps</title>
+    <meta name="description" content="Jhonatan Enrrique - Desarrollador de Software Profesional especializado en Sistemas Web, Apps y Proyectos Académicos.">
+    <title>Jhonatan Enrrique | Desarrollador de Software</title>
+    
+    <!-- Fuentes e Iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animaciones AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
             --primary: #00d4ff;
-            --secondary: #0099cc;
-            --dark: #0a1628;
-            --light: #ffffff;
-            --gray: #1a2744;
+            --secondary: #0077b6;
+            --dark: #0a192f;
+            --darker: #060f1d;
+            --light: #e6f1ff;
+            --gray: #112240;
+            --slate: #8892b0;
+            --white: #ffffff;
         }
 
         html {
@@ -28,294 +39,440 @@
 
         body {
             background-color: var(--dark);
-            color: var(--light);
+            color: var(--slate);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--light);
+            line-height: 1.2;
+        }
+
+        /* NAVEGACIÓN */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 1rem 5%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 212, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--light);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 2.5rem;
         }
 
-        nav a {
-            color: var(--light);
+        nav a.nav-link {
+            color: var(--slate);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
         }
 
-        nav a:hover {
+        nav a.nav-link:hover, nav a.nav-link.active {
             color: var(--primary);
         }
 
+        nav a.nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 4px;
+            right: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a.nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--primary);
+        }
+
+        /* HERO SECTION */
         .hero {
-            margin-top: 60px;
-            padding: 100px 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, var(--dark) 0%, var(--gray) 100%);
+            padding: 80px 5% 40px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            position: relative;
+        }
+
+        .hero-greeting {
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 800;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            min-height: 50px;
+        }
+
+        .typewriter {
+            color: var(--primary);
+            border-right: 3px solid var(--primary);
+            padding-right: 5px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #a0aec0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: var(--slate);
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn {
-            padding: 15px 40px;
+            padding: 14px 32px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-size: 1rem;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--dark);
+            background: var(--primary);
+            color: var(--darker);
         }
 
         .btn-primary:hover {
+            background: var(--light);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--primary);
-            border: 2px solid var(--primary);
+            border: 1px solid var(--primary);
         }
 
         .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--dark);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
         }
 
+        .btn-small {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        /* SECCIONES GENERALES */
         section {
-            padding: 80px 5%;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            color: #a0aec0;
-        }
-
-        .services {
-            background: var(--gray);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            padding: 100px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .service-card {
-            background: var(--dark);
-            padding: 2rem;
-            border-radius: 15px;
+        h2.section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
             text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-
-        .service-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
             margin-bottom: 1rem;
             color: var(--light);
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+        .section-subtitle {
+            text-align: center;
+            color: var(--slate);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
         }
 
-        .skill-category h3 {
+        /* SOBRE MÍ */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .about-content strong {
             color: var(--primary);
+        }
+
+        /* SERVICIOS Y PORTAFOLIO (Grids) */
+        .bg-gray {
+            background-color: var(--gray);
+            max-width: 100%;
+            margin: 0;
+            width: 100%;
+        }
+
+        .services-grid, .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card, .portfolio-item {
+            background: var(--dark);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover, .portfolio-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
 
+        /* HABILIDADES */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-category h3 {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--gray);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary);
+        }
+
         .skill-item {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .skill-name {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: var(--light);
         }
 
         .skill-bar {
-            height: 10px;
-            background: var(--gray);
-            border-radius: 5px;
+            height: 8px;
+            background: var(--darker);
+            border-radius: 4px;
             overflow: hidden;
         }
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 5px;
+            width: 0; /* Inicia en 0 para la animación */
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
         }
 
-        .portfolio {
-            background: var(--gray);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .portfolio-item {
-            background: var(--dark);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.03);
-        }
-
+        /* PORTAFOLIO */
         .portfolio-img {
-            height: 250px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            height: 200px;
+            background: linear-gradient(135deg, var(--darker), var(--gray));
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-        }
-
-        .portfolio-img i {
-            color: white;
-        }
-
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-
-        .portfolio-info h3 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
             color: var(--primary);
         }
 
-        .portfolio-info p {
-            color: #a0aec0;
-            margin-bottom: 0.5rem;
+        .portfolio-info {
+            text-align: left;
         }
 
+        .portfolio-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--light);
+        }
+
+        .portfolio-info p {
+            color: var(--slate);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-features {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .portfolio-features li {
+            margin-bottom: 0.3rem;
+        }
+
+        .portfolio-features i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        /* CONTACTO */
         .contact-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
 
         .contact-methods {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
         .contact-method {
-            padding: 2rem;
+            padding: 2rem 1rem;
             background: var(--gray);
-            border-radius: 10px;
-            transition: transform 0.3s;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .contact-method:hover {
             transform: translateY(-5px);
+            background: var(--dark);
+            border: 1px solid var(--primary);
         }
 
         .contact-method i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
-        .contact-method a {
+        .contact-method h3 {
             color: var(--light);
-            text-decoration: none;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
         }
 
+        .contact-method p {
+            color: var(--slate);
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        /* FOOTER */
         footer {
-            background: var(--dark);
+            background: var(--darker);
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
         }
 
+        footer p {
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        footer .heart {
+            color: var(--primary);
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            nav ul {
+                gap: 1.2rem;
             }
             
-            nav ul {
-                gap: 1rem;
+            nav a.nav-link {
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 60px 5%;
             }
         }
     </style>
@@ -323,21 +480,24 @@
 <body>
 
     <nav>
+        <a href="#inicio" class="logo">J<span>E.</span></a>
         <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre Mí</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#portafolio">Portafolio</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+            <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
     </nav>
 
     <section class="hero" id="inicio">
+        <p class="hero-greeting">Hola, soy</p>
         <h1>Jhonatan Enrrique</h1>
-        <p>Programación de Sistemas y Apps</p>
-        <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem;">
-            Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas.
+        <h2>Experto en <span class="typewriter" id="typewriter"></span></h2>
+        <p>
+            Desarrollo de software profesional a medida para TSU, Licenciados e Ingenieros en Sistemas. 
+            Transformo ideas en aplicaciones funcionales, escalables y modernas.
         </p>
         <div class="cta-buttons">
             <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary">
@@ -349,328 +509,319 @@
         </div>
     </section>
 
-    <section id="sobre-mi">
-        <h2>Sobre Mí</h2>
+    <section id="sobre-mi" data-aos="fade-up">
+        <h2 class="section-title">Sobre Mí</h2>
+        <p class="section-subtitle">Conoce un poco más sobre mi experiencia</p>
         <div class="about-content">
             <p>
                 Soy <strong>Jhonatan Enrrique</strong>, desarrollador de software especializado en crear soluciones tecnológicas 
-                innovadoras. Con experiencia en múltiples lenguajes de programación, me dedico a transformar ideas en 
-                aplicaciones funcionales.
+                innovadoras. Con amplia experiencia en múltiples lenguajes de programación y frameworks, me dedico a transformar ideas en 
+                aplicaciones funcionales. Mi enfoque se centra en la calidad del código, la experiencia del usuario y el rendimiento, 
+                ayudando a empresas y estudiantes a alcanzar sus metas tecnológicas.
             </p>
         </div>
     </section>
 
-    <section id="servicios" class="services">
-        <h2>Mis Servicios</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Apps Móviles</h3>
-                <p>Desarrollo de aplicaciones para iOS y Android.</p>
+    <div class="bg-gray">
+        <section id="servicios" data-aos="fade-up">
+            <h2 class="section-title">Mis Servicios</h2>
+            <p class="section-subtitle">Lo que puedo hacer por ti</p>
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Apps Móviles</h3>
+                    <p>Desarrollo de aplicaciones nativas e híbridas para iOS y Android.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-code"></i>
+                    <h3>Sistemas Web</h3>
+                    <p>Aplicaciones web modernas, rápidas y escalables con tecnología de vanguardia.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-database"></i>
+                    <h3>Bases de Datos</h3>
+                    <p>Diseño, optimización y migración de bases de datos relacionales y NoSQL.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Software de Escritorio</h3>
+                    <p>Aplicaciones robustas para Windows, Mac y Linux según tus requerimientos.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Sistemas a Medida</h3>
+                    <p>Soluciones ERP, CRM y gestión empresarial adaptadas a tu negocio.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Proyectos Académicos</h3>
+                    <p>Asesoría y desarrollo para TSU, Ingenierías y postgrados.</p>
+                </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-code"></i>
-                <h3>Sistemas Web</h3>
-                <p>Aplicaciones web modernas y escalables.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-database"></i>
-                <h3>Bases de Datos</h3>
-                <p>Diseño y optimización de bases de datos.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-desktop"></i>
-                <h3>Software de Escritorio</h3>
-                <p>Aplicaciones para Windows, Mac y Linux.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-cogs"></i>
-                <h3>Sistemas a Medida</h3>
-                <p>Soluciones ERP, CRM y gestión empresarial.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Proyectos Académicos</h3>
-                <p>Desarrollo para TSU e Ingenierías.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section id="habilidades">
-        <h2>Habilidades Técnicas</h2>
+    <section id="habilidades" data-aos="fade-up">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <p class="section-subtitle">Tecnologías y herramientas que domino</p>
         <div class="skills-grid">
-            <div class="skill-category">
+            <div class="skill-category" data-aos="fade-right">
                 <h3><i class="fas fa-laptop-code"></i> Lenguajes</h3>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>PHP</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
+                    <div class="skill-name"><span>PHP</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>JavaScript</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
+                    <div class="skill-name"><span>JavaScript</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Java</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
+                    <div class="skill-name"><span>Java</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div>
                 </div>
             </div>
 
-            <div class="skill-category">
+            <div class="skill-category" data-aos="fade-right" data-aos-delay="100">
                 <h3><i class="fas fa-globe"></i> Web</h3>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>HTML5/CSS3</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
+                    <div class="skill-name"><span>HTML5 / CSS3</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>React</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
+                    <div class="skill-name"><span>React</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Bootstrap</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
+                    <div class="skill-name"><span>Bootstrap</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
                 </div>
             </div>
 
-            <div class="skill-category">
+            <div class="skill-category" data-aos="fade-right" data-aos-delay="200">
                 <h3><i class="fas fa-database"></i> Bases de Datos</h3>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>MySQL</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
+                    <div class="skill-name"><span>MySQL</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>PostgreSQL</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
+                    <div class="skill-name"><span>PostgreSQL</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div>
                 </div>
             </div>
 
-            <div class="skill-category">
+            <div class="skill-category" data-aos="fade-right" data-aos-delay="300">
                 <h3><i class="fas fa-tools"></i> Herramientas</h3>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Git/GitHub</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
+                    <div class="skill-name"><span>Git / GitHub</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-name">
-                        <span>XAMPP</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
+                    <div class="skill-name"><span>XAMPP / Docker</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portafolio" class="portfolio">
-        <h2>Mis Proyectos Destacados</h2>
-        <div class="portfolio-grid">
-            
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-utensils"></i>
+    <div class="bg-gray">
+        <section id="portafolio" data-aos="fade-up">
+            <h2 class="section-title">Mis Proyectos Destacados</h2>
+            <p class="section-subtitle">Algunos sistemas y aplicaciones que he desarrollado</p>
+            <div class="portfolio-grid">
+                
+                <div class="portfolio-item" data-aos="flip-up">
+                    <div class="portfolio-img"><i class="fas fa-utensils"></i></div>
+                    <div class="portfolio-info">
+                        <h3>FUNDAPROAL</h3>
+                        <p>Sistema de Soberanía Alimentaria para el Estado Monagas.</p>
+                        <p class="tech-stack">PHP, MySQL, JavaScript, Bootstrap</p>
+                        <ul class="portfolio-features">
+                            <li><i class="fas fa-check"></i> 86,000+ madres beneficiarias</li>
+                            <li><i class="fas fa-check"></i> 3,800+ casas de alimentación</li>
+                            <li><i class="fas fa-check"></i> Dashboard multiusuario</li>
+                        </ul>
+                        <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-info-circle"></i> Más Información
+                        </a>
+                    </div>
                 </div>
-                <div class="portfolio-info">
-                    <h3>FUNDAPROAL - Sistema de Soberanía Alimentaria</h3>
-                    <p>Sistema integral para la Fundación Programa de Alimentos Estratégicos del Estado Monagas.</p>
-                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript, Bootstrap</p>
-                    <p><strong>Características:</strong>
-                       <br>✅ 86,000+ madres beneficiarias
-                       <br>✅ 3,800+ casas de alimentación
-                       <br>✅ 4.6M+ estudiantes
-                       <br>✅ Dashboard multiusuario
-                    </p>
-                    <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 10px 25px; font-size: 0.95rem;">
-                        <i class="fas fa-info-circle"></i> Más Información
-                    </a>
+
+                <div class="portfolio-item" data-aos="flip-up" data-aos-delay="100">
+                    <div class="portfolio-img"><i class="fas fa-warehouse"></i></div>
+                    <div class="portfolio-info">
+                        <h3>Inventario Inteligente</h3>
+                        <p>Gestión de inventario con control de stock y alertas.</p>
+                        <p class="tech-stack">PHP, MySQL, JavaScript, AJAX</p>
+                        <ul class="portfolio-features">
+                            <li><i class="fas fa-check"></i> Control en tiempo real</li>
+                            <li><i class="fas fa-check"></i> Alertas de stock mínimo</li>
+                            <li><i class="fas fa-check"></i> Soporte Multi-almacén</li>
+                        </ul>
+                        <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-info-circle"></i> Más Información
+                        </a>
+                    </div>
                 </div>
+
+                <div class="portfolio-item" data-aos="flip-up" data-aos-delay="200">
+                    <div class="portfolio-img"><i class="fas fa-motorcycle"></i></div>
+                    <div class="portfolio-info">
+                        <h3>App de Delivery</h3>
+                        <p>Aplicación para pedidos a domicilio con tracking GPS.</p>
+                        <p class="tech-stack">React Native, Firebase, Node.js</p>
+                        <ul class="portfolio-features">
+                            <li><i class="fas fa-check"></i> Pedidos online</li>
+                            <li><i class="fas fa-check"></i> GPS tracking en vivo</li>
+                            <li><i class="fas fa-check"></i> Pasarela de pagos</li>
+                        </ul>
+                        <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-info-circle"></i> Más Información
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="flip-up">
+                    <div class="portfolio-img"><i class="fas fa-chart-line"></i></div>
+                    <div class="portfolio-info">
+                        <h3>CRM Empresarial</h3>
+                        <p>Gestión de clientes y automatización de ventas.</p>
+                        <p class="tech-stack">PHP, Laravel, Vue.js</p>
+                        <ul class="portfolio-features">
+                            <li><i class="fas fa-check"></i> Pipeline de ventas</li>
+                            <li><i class="fas fa-check"></i> Automatización de tareas</li>
+                            <li><i class="fas fa-check"></i> Integración WhatsApp API</li>
+                        </ul>
+                        <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-info-circle"></i> Más Información
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="flip-up" data-aos-delay="100">
+                    <div class="portfolio-img"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="portfolio-info">
+                        <h3>Plataforma E-Learning</h3>
+                        <p>Sistema de cursos online con evaluaciones y certificados.</p>
+                        <p class="tech-stack">PHP, MySQL, JavaScript</p>
+                        <ul class="portfolio-features">
+                            <li><i class="fas fa-check"></i> Cursos ilimitados</li>
+                            <li><i class="fas fa-check"></i> Evaluaciones dinámicas</li>
+                            <li><i class="fas fa-check"></i> Certificados automáticos</li>
+                        </ul>
+                        <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-info-circle"></i> Más Información
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="flip-up" data-aos-delay="200">
+                    <div class="portfolio-img"><i class="fas fa-hospital"></i></div>
+                    <div class="portfolio-info">
+                        <h3>Gestión Médica</h3>
+                        <p>Sistema de citas médicas e historiales clínicos.</p>
+                        <p class="tech-stack">PHP, MySQL, JavaScript</p>
+                        <ul class="portfolio-features">
+                            <li><i class="fas fa-check"></i> Citas online</li>
+                            <li><i class="fas fa-check"></i> Historial clínico digital</li>
+                            <li><i class="fas fa-check"></i> Recetas electrónicas</li>
+                        </ul>
+                        <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-info-circle"></i> Más Información
+                        </a>
+                    </div>
+                </div>
+
             </div>
+        </section>
+    </div>
 
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-warehouse"></i>
-                </div>
-                <div class="portfolio-info">
-                    <h3>Sistema de Inventario Inteligente</h3>
-                    <p>Gestión de inventario con control de stock y alertas automáticas.</p>
-                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript, AJAX</p>
-                    <p><strong>Módulos:</strong>
-                       <br>✅ Control en tiempo real
-                       <br>✅ Alertas de stock
-                       <br>✅ Multi-almacén
-                       <br>✅ Reportes
-                    </p>
-                    <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 10px 25px; font-size: 0.95rem;">
-                        <i class="fas fa-info-circle"></i> Más Información
-                    </a>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-motorcycle"></i>
-                </div>
-                <div class="portfolio-info">
-                    <h3>App de Delivery</h3>
-                    <p>Aplicación para pedidos a domicilio con tracking GPS.</p>
-                    <p><strong>Tecnologías:</strong> React Native, Firebase, Node.js</p>
-                    <p><strong>Funciones:</strong>
-                       <br>✅ Pedidos online
-                       <br>✅ GPS tracking
-                       <br>✅ Pagos digitales
-                       <br>✅ Notificaciones
-                    </p>
-                    <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 10px 25px; font-size: 0.95rem;">
-                        <i class="fas fa-info-circle"></i> Más Información
-                    </a>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="portfolio-info">
-                    <h3>CRM Empresarial</h3>
-                    <p>Gestión de clientes y automatización de ventas.</p>
-                    <p><strong>Tecnologías:</strong> PHP, Laravel, Vue.js</p>
-                    <p><strong>Características:</strong>
-                       <br>✅ Pipeline de ventas
-                       <br>✅ Automatización
-                       <br>✅ Reportes
-                       <br>✅ Integración WhatsApp
-                    </p>
-                    <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 10px 25px; font-size: 0.95rem;">
-                        <i class="fas fa-info-circle"></i> Más Información
-                    </a>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="portfolio-info">
-                    <h3>Plataforma E-Learning</h3>
-                    <p>Sistema de cursos online con evaluaciones y certificados.</p>
-                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript</p>
-                    <p><strong>Módulos:</strong>
-                       <br>✅ Cursos ilimitados
-                       <br>✅ Evaluaciones
-                       <br>✅ Certificados
-                       <br>✅ Pagos online
-                    </p>
-                    <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 10px 25px; font-size: 0.95rem;">
-                        <i class="fas fa-info-circle"></i> Más Información
-                    </a>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <i class="fas fa-hospital"></i>
-                </div>
-                <div class="portfolio-info">
-                    <h3>Sistema de Gestión Médica</h3>
-                    <p>Gestión de citas médicas e historiales clínicos.</p>
-                    <p><strong>Tecnologías:</strong> PHP, MySQL, JavaScript</p>
-                    <p><strong>Funciones:</strong>
-                       <br>✅ Citas online
-                       <br>✅ Historial clínico
-                       <br>✅ Recetas electrónicas
-                       <br>✅ Recordatorios
-                    </p>
-                    <a href="https://wa.me/584148987653" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 10px 25px; font-size: 0.95rem;">
-                        <i class="fas fa-info-circle"></i> Más Información
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contacto">
-        <h2>¡Trabajemos Juntos!</h2>
+    <section id="contacto" data-aos="fade-up">
+        <h2 class="section-title">¡Trabajemos Juntos!</h2>
+        <p class="section-subtitle">¿Tienes un proyecto en mente? Hablemos.</p>
         <div class="contact-content">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #a0aec0;">
-                ¿Tienes un proyecto? Contáctame.
-            </p>
             <div class="contact-methods">
-                <div class="contact-method">
+                <a href="https://wa.me/584148987653" target="_blank" class="contact-method" data-aos="zoom-in">
                     <i class="fab fa-whatsapp"></i>
                     <h3>WhatsApp</h3>
-                    <p><a href="https://wa.me/584148987653" target="_blank">+58 414-8987653</a></p>
-                </div>
-                <div class="contact-method">
+                    <p>+58 414-8987653</p>
+                </a>
+                <a href="mailto:idrogoenriquejhonatan@gmail.com" class="contact-method" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
-                    <p><a href="mailto:idrogoenriquejhonatan@gmail.com">idrogoenriquejhonatan@gmail.com</a></p>
-                </div>
-                <div class="contact-method">
-                    <i class="fab fa-facebook"></i>
-                    <h3>Facebook</h3>
-                    <p><a href="#">Programación de Sistemas</a></p>
-                </div>
-                <div class="contact-method">
+                    <p>idrogoenriquejhonatan@gmail.com</p>
+                </a>
+                <a href="https://github.com/Riggidfox" target="_blank" class="contact-method" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fab fa-github"></i>
                     <h3>GitHub</h3>
-                    <p><a href="https://github.com/Riggidfox" target="_blank">@Riggidfox</a></p>
-                </div>
+                    <p>@Riggidfox</p>
+                </a>
+                <a href="#" class="contact-method" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                    <p>Programación de Sistemas</p>
+                </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Jhonatan Enrrique. Todos los derechos reservados.</p>
-        <p style="margin-top: 0.5rem; color: var(--primary);">
-            <i class="fas fa-code"></i> con <i class="fas fa-heart" style="color: #ff6b6b;"></i> desde Venezuela
-        </p>
+        <p>&copy; <span id="year"></span> Jhonatan Enrrique. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem;">Diseñado y desarrollado con <span class="heart"><i class="fas fa-heart"></i></span> desde Venezuela</p>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar animaciones AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Actualizar año en el footer automáticamente
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Efecto Máquina de Escribir
+        const texts = ["Sistemas Web", "Apps Móviles", "Proyectos Académicos", "Bases de Datos"];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+        const typewriter = document.getElementById('typewriter');
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            typewriter.textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    index = 0;
+                    count++;
+                    type();
+                }, 2000); // Pausa antes de borrar
+            } else {
+                setTimeout(type, 150); // Velocidad de escritura
+            }
+        }());
+
+        // Animación de barras de progreso al hacer scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            observer.observe(bar);
+        });
+    </script>
 </body>
 </html>
