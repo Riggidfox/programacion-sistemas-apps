@@ -44,6 +44,8 @@
             --gray: #112240;
             --slate: #8892b0;
             --white: #ffffff;
+            --tiktok: #ff0050;
+            --facebook: #1877f2;
         }
 
         html {
@@ -482,6 +484,12 @@
         .contact-method h3 { color: var(--light); font-size: 1.1rem; margin-bottom: 0.5rem; }
         .contact-method p { color: var(--slate); font-size: 0.9rem; word-break: break-all; }
 
+        /* Colores específicos para redes sociales */
+        .contact-method.tiktok:hover { border-color: var(--tiktok); }
+        .contact-method.tiktok i { color: var(--tiktok); }
+        .contact-method.facebook:hover { border-color: var(--facebook); }
+        .contact-method.facebook i { color: var(--facebook); }
+
         /* SCROLL TOP Y FOOTER */
         .scroll-top {
             position: fixed;
@@ -517,9 +525,11 @@
 
         footer p { color: var(--slate); font-size: 0.9rem; }
         footer .heart { color: var(--primary); }
-        .footer-socials { margin-bottom: 1rem; display: flex; gap: 1.5rem; justify-content: center; }
-        .footer-socials a { color: var(--slate); font-size: 1.5rem; transition: color 0.3s; }
-        .footer-socials a:hover { color: var(--primary); }
+        .footer-socials { margin-bottom: 1rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .footer-socials a { color: var(--slate); font-size: 1.5rem; transition: all 0.3s; }
+        .footer-socials a:hover { color: var(--primary); transform: translateY(-3px); }
+        .footer-socials a.tiktok:hover { color: var(--tiktok); }
+        .footer-socials a.facebook:hover { color: var(--facebook); }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -604,10 +614,12 @@
         <p class="section-subtitle">Conoce un poco más sobre mi experiencia</p>
         <div class="about-content">
             <p>
-                Soy <strong>Jhonatan Enrique Idrogo</strong>, desarrollador de software especializado en crear soluciones tecnológicas 
-                innovadoras. Con amplia experiencia en múltiples lenguajes de programación y frameworks, me dedico a transformar ideas en 
-                aplicaciones funcionales. Mi enfoque se centra en la calidad del código, la experiencia del usuario y el rendimiento, 
-                ayudando a empresas y estudiantes a alcanzar sus metas tecnológicas.
+                Soy <strong>Jhonatan Enrique Idrogo</strong>, TSU en Informática para la Gestión Social, 
+                desarrollador de software especializado en crear soluciones tecnológicas innovadoras. 
+                Con más de 6 años de experiencia en múltiples lenguajes de programación y frameworks, 
+                me dedico a transformar ideas en aplicaciones funcionales. Mi enfoque se centra en la 
+                calidad del código, la experiencia del usuario y el rendimiento, ayudando a empresas 
+                y estudiantes a alcanzar sus metas tecnológicas.
             </p>
             
             <div class="stats-container">
@@ -620,7 +632,7 @@
                     <span class="stat-label">Clientes Satisfechos</span>
                 </div>
                 <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-number" data-target="6">0</span>
                     <span class="stat-label">Años de Experiencia</span>
                 </div>
             </div>
@@ -875,7 +887,7 @@
                 </a>
                 <a href="https://wa.me/584145660033" target="_blank" class="contact-method" data-aos="zoom-in" data-aos-delay="50">
                     <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp Alternativo</h3>
+                    <h3>WhatsApp Business</h3>
                     <p>+58 414-566-0033</p>
                 </a>
                 <a href="mailto:idrogoenriquejhonatan@gmail.com" class="contact-method" data-aos="zoom-in" data-aos-delay="100">
@@ -883,15 +895,20 @@
                     <h3>Email</h3>
                     <p>idrogoenriquejhonatan@gmail.com</p>
                 </a>
-                <a href="https://github.com/Riggidfox" target="_blank" class="contact-method" data-aos="zoom-in" data-aos-delay="200">
+                <a href="https://github.com/Riggidfox" target="_blank" class="contact-method" data-aos="zoom-in" data-aos-delay="150">
                     <i class="fab fa-github"></i>
                     <h3>GitHub</h3>
                     <p>@Riggidfox</p>
                 </a>
-                <a href="#" class="contact-method" data-aos="zoom-in" data-aos-delay="300">
+                <a href="https://www.tiktok.com/@marketproapps" target="_blank" class="contact-method tiktok" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fab fa-tiktok"></i>
+                    <h3>TikTok</h3>
+                    <p>@marketproapps</p>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61590730447835" target="_blank" class="contact-method facebook" data-aos="zoom-in" data-aos-delay="250">
                     <i class="fab fa-facebook"></i>
                     <h3>Facebook</h3>
-                    <p>Programación de Sistemas</p>
+                    <p>MarketPro Apps</p>
                 </a>
             </div>
         </div>
@@ -900,9 +917,11 @@
     <footer>
         <div class="footer-socials">
             <a href="https://wa.me/584148987653" target="_blank" title="WhatsApp Principal"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://wa.me/584145660033" target="_blank" title="WhatsApp Alternativo"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://github.com/Riggidfox" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:idrogoenriquejhonatan@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/584145660033" target="_blank" title="WhatsApp Business"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://github.com/Riggidfox" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.tiktok.com/@marketproapps" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61590730447835" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:idrogoenriquejhonatan@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
         <p>&copy; <span id="year"></span> Jhonatan Enrique Idrogo. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem;">Diseñado y desarrollado con <span class="heart"><i class="fas fa-heart"></i></span> desde Venezuela</p>
